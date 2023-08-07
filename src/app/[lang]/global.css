@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .small {
+    font-size: 0.3rem;
+  }
+}
+
+@layer components {
+  .triangle {
+    position: absolute;
+    content: "";
+    top: 95%;
+    right: 75%;
+    border-top: 0.4rem solid #000;
+    border-left: .4rem solid transparent;
+    border-right: .4rem solid transparent;
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Sobre mi",
+    "Works": "Trabajos",
+    "Contact": "contacto"
+  },
+  "header": {
+    "hi": "Hola, Soy Lucas 👋",
+    "dev": "Desarrollador FullStack",
+    "footer": "Apasionado por el desarrollo web.",
+    "button": {
+      "cv": "Curriculum",
+      "work": "Proyectos"
+    }
+  },
+  "about": {
+    "title": "Sobre mí.",
+    "body": "Hola! Mi nombre es Santiago Betancur, soy un desarrollador frontend residente en Colombia. Actualmente soy estudiante de ingeniería de software Apasionado por crear interfaces web. Mis habilidades más fuertes son HTML, CSS y JavaScript, estoy constantemente expandiendo mis conocimientos con nuevas tecnologías y herramientas. También cuento con experiencia usando frameworks como React y Vue."
+  },
+  "eduction": {
+    "title": "Educación:"
+  },
+  "techStack": {
+    "title": "Tecnologías:"
+  },
+  "dataQuest": [
+    {
+      "title": "quest one",
+      "body": "description quest one saraaskvnebrvbb vevuieb"
+    },
+    {
+      "title": "quest two",
+      "body": "description quest one saraaskvnebrvbb vevuieb"
+    },
+    {
+      "title": "quest three",
+      "body": "description quest one saraaskvnebrvbb vevuieb"
+    }
+  ],
+  "works": {
+    "title": "Proyectos",
+    "add": "mas projects",
+    "principal": [
+      {
+        "title": "food recipe",
+        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "github": "sarasa",
+        "web": "sarasa"
+      },
+      {
+        "title": "food recipe",
+        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "github": "sarasa",
+        "web": "sarasa"
+      },
+      {
+        "title": "food recipe",
+        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "github": "sarasa",
+        "web": "sarasa"
+      }
+    ]
+  },
+  "contact": {
+    "email": {
+      "label": "Tu email",
+      "placeholder": "example@gmail.com"
+    },
+    "body": {
+      "label": "Tu mensaje",
+      "placeholder": "escribe tus pensamientos aquí..."
+    },
+    "submit": "Enviar"
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados por lucas manoguerra desarrollador full stack."
+  }
+}
