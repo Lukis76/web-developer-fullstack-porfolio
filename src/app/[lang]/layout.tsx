@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   icons: {
-    icon: 'http://localhost:3000/es/favicon.ico'
+    icon: 'https://rocketdev.vercel.app/en/favicon.ico'
   },
   title: 'lucas manoguerra - portfolio',
   description: 'lucas manoguerra - portfolio - web developer fullstack',
