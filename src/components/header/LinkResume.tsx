@@ -12,7 +12,8 @@ export const LinkResume: FC<LinkResumeProps> = ({ children }) => {
       <p className='flex flex-row justify-center items-center gap-2'>
         {children}
         <i>
-          <Papper size={1.5} className=' stroke-blue-700  dark:stroke-blue-500' />
+          <Papper size={1.5} className=' stroke-blue-700 hover:stroke-white dark:stroke-blue-500 dark:hover:stroke-white' />
+
         </i>
       </p>
     </Link>
