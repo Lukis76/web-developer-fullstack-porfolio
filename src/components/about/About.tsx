@@ -18,15 +18,15 @@ export const About: FC<AboutProps> = async ({ lang }) => {
         <div className='w-full'>
           <h2 className='text-4xl font-bold text-blue-600 flex flex-row justify-start items-center gap-4'>
             {about.title}
-            {/* <i> */}
-            {/*   <Image */}
-            {/*     quality={10} */}
-            {/*     src={"https://images.emojiterra.com/google/noto-emoji/unicode-15/animated/1f609.gif"} */}
-            {/*     width={42} */}
-            {/*     height={42} */}
-            {/*     alt='gif emoji guiño' */}
-            {/*   /> */}
-            {/* </i> */}
+            <i>
+              <Image
+                quality={0}
+                src={"https://images.emojiterra.com/google/noto-emoji/unicode-15/animated/1f609.gif"}
+                width={42}
+                height={42}
+                alt='gif emoji guiño'
+              />
+            </i>
           </h2>
           <p className='mt-4 text-xl max-w-4xl w-full'>{about.body}</p>
         </div>
