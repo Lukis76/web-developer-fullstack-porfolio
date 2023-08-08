@@ -6,6 +6,7 @@ import { FC, ReactNode } from 'react'
 import { Providers } from '../../porviders/Providers'
 import './global.css'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -13,7 +14,14 @@ export const metadata: Metadata = {
         icon: 'https://rocketdev.vercel.app/en/favicon.ico',
     },
     title: 'lucas manoguerra - portfolio',
-    description: 'lucas manoguerra - portfolio - web developer fullstack',
+  description: 'lucas manoguerra - portfolio - web developer fullstack',
+  // openGraph: {
+  //   title: 'lucas manoguerra - portfolio',
+  //   description: 'lucas manoguerra - portfolio - web developer fullstack',
+  //   images: [
+  //     "https://rocketdev.vercel.app/en/screen-porfolio.png"
+  //   ]
+  //   }
 }
 
 export async function generateStaticParams() {
@@ -38,7 +46,7 @@ const LocaleLayout: FC<LocaleLayoutProps> = ({ children, params }) => {
             <head>
                 <meta property='og:title' content='Título de tu página' />
                 <meta property='og:description' content='Descripción de tu página' />
-                <meta property='og:image' content='https://rocketdev.vercel.app/en/screen-porfolio' />
+                <meta property='og:image' content='https://rocketdev.vercel.app/en/screen-porfolio.png' />
             </head>
             <body
                 suppressHydrationWarning={true}
