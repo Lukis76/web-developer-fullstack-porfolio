@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#00b5e8"
+        primary: "#6C63FF"
       },
       keyframes: {
         radiusMorph: {

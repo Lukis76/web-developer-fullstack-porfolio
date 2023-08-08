@@ -33,7 +33,7 @@ export const Accordion: FC<AccordionProps> = ({ dataQuest }) => {
                             aria-selected={current === idx}
                             className={`flex items-center justify-between w-full p-5 text-left text-gray-500 border-none border-b-gray-200 rounded-xl aria-selected:rounded-none aria-selected:rounded-t-xl dark:border-b-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 aria-selected:dark:bg-gray-800 aria-selected:bg-blue-100 `}
                         >
-                            <span className='text-xl font-semibold text-blue-600'>{item.title}</span>
+                            <span className='text-xl font-semibold text-primary'>{item.title}</span>
                             <svg
                                 aria-selected={current === idx}
                                 className={`w-3 h-3 shrink-0 transition-all duration-500 rotate-180 aria-selected:rotate-0`}

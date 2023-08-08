@@ -16,7 +16,7 @@ export const About: FC<AboutProps> = async ({ lang }) => {
             <div className='flex flex-row justify-between items-center gap-20 float-lef'>
                 <DrinkCoffee size={35} />
                 <div className='w-full'>
-                    <h2 className='text-4xl font-bold text-blue-600 flex flex-row justify-start items-center gap-4'>
+                    <h2 className='text-4xl font-bold text-primary flex flex-row justify-start items-center gap-4'>
                         {about.title}
                         <i>
                             <Image

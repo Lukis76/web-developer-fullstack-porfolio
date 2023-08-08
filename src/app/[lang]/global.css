@@ -26,10 +26,10 @@
     font-size: 1.3rem;
   }
   .frame-strong > strong {
-    border: 1px solid #403f79;
+    border: 1px solid #6C63FF79;
     padding: 0px 6px;
     border-radius: 5px;
-    color: #403f79;
+    color: #6C63FFbb;
   }
 }
 
