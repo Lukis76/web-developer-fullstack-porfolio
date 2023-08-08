@@ -26,12 +26,12 @@
   },
   "dataQuest": [
     {
-      "title": "quest one",
-      "body": "description quest one saraaskvnebrvbb vevuieb"
+      "title": "Tools",
+      "body": "With an insatiable curiosity, I delve into essential tools like Figma to transform ideas into immersive designs. Furthermore, I employ tools such as npm, ESLint, and Prettier to refine code quality, and leverage Bash and Git for a seamless workflow. I am always ready to bring your visions to life with a touch of technical excellence."
     },
     {
-      "title": "quest two",
-      "body": "description quest one saraaskvnebrvbb vevuieb"
+      "title": "Testing",
+      "body": "Testing isn't just a phase in my development process; it's a cornerstone of ensuring quality and reliability.<br/>I understand that a solid testing strategy can make or break a project, which is why I embrace testing tools like Jest, React Testing Library, Puppeteer, Cypress, and Vitest.<br/>By meticulously crafting and executing tests, I ensure that each feature is rigorously validated before it reaches the user.<br/>I also leverage powerful tools like GitHub Actions and Docker for isolated environments, allowing me to confidently explore different scenarios without compromising stability.<br/>Testing isn't an afterthought for me – it's a commitment to delivering excellence and building products that stand the test of time."
     },
     {
       "title": "quest three",

@@ -26,12 +26,12 @@
   },
   "dataQuest": [
     {
-      "title": "quest one",
-      "body": "description quest one saraaskvnebrvbb vevuieb"
+      "title": "Herramientas",
+      "body": "Con una curiosidad insaciable, exploro herramientas fundamentales como Figma para transformar ideas en diseños envolventes. Además, utilizo herramientas como npm, ESLint y Prettier para perfeccionar el código y Bash y Git para un flujo de trabajo fluido.<br>Siempre estoy preparado para dar vida a tus visiones con un toque de excelencia técnica."
     },
     {
-      "title": "quest two",
-      "body": "description quest one saraaskvnebrvbb vevuieb"
+      "title": "Pruebas",
+      "body": "Las pruebas no son solo una fase en mi proceso de desarrollo; son un pilar fundamental para garantizar calidad y confiabilidad.<br/>Comprendo que una estrategia sólida de pruebas puede marcar la diferencia en un proyecto, por lo que adopto herramientas de prueba como Jest, React Testing Library, Puppeteer, Cypress y Vitest.<br/>Al crear y ejecutar pruebas meticulosamente, me aseguro de que cada característica se valide rigurosamente antes de llegar al usuario.<br/>También aprovecho herramientas potentes como GitHub Actions y Docker para entornos aislados, lo que me permite explorar diferentes escenarios con confianza sin comprometer la estabilidad.<br/>Las pruebas no son una ocurrencia tardía para mí; es un compromiso para ofrecer excelencia y construir productos que superen la prueba del tiempo."
     },
     {
       "title": "quest three",
