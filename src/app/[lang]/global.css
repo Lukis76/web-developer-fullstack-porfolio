@@ -18,11 +18,20 @@
     border-left: .4rem solid transparent;
     border-right: .4rem solid transparent;
   }
-}
-
-
-@layer components {
   .shape-outside-circle {
     shape-outside: circle(50%);
   }
+  .frame-strong {
+    line-height: 1.6;
+    font-size: 1.3rem;
+  }
+  .frame-strong > strong {
+    border: 1px solid #403f79;
+    padding: 0px 6px;
+    border-radius: 5px;
+    color: #403f79;
+  }
 }
+
+
+
