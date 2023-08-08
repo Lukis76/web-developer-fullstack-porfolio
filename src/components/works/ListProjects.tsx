@@ -64,7 +64,7 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                                 {project.chip.map((chip) => {
                                     return (
                                         <small
-                                            className='inline-block dark:bg-primary dark:opacity-70 bg-blue-300 opacity-90 rounded-lg px-2 py-1 text-sm font-semibold dark:text-black text-slate-700 leading-3'
+                                            className=' chip'
                                             key={chip}
                                         >
                                             {chip}

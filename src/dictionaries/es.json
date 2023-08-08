@@ -46,7 +46,7 @@
         "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
         "web": "sarasa",
-        "chip": ["react"]
+        "chip": ["react", "redux", "style components", "sequelize", "postgresql", "nodejs", "express"]
 
       },
       {
