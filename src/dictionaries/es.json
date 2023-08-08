@@ -16,7 +16,7 @@
   },
   "about": {
     "title": "Sobre mí.",
-    "body": "\"Soy un desarrollador web full stack apasionado con experiencia en una amplia gama de tecnologías y frameworks, incluyendo React, Next.js, Redux, TypeScript, Node.js, NestJS, Express, GraphQL, MongoDB, PostgreSQL, y más.<br/>Mi enfoque meticuloso en el detalle y mi pasión por la innovación se combinan para crear soluciones robustas y atractivas.<br/>Siempre estoy ansioso por explorar nuevas tecnologías y aportar mi energía a cada proyecto. ¡Estoy listo para llevar tus ideas al siguiente nivel!\""
+    "body": "\"Soy un desarrollador web full stack apasionado con experiencia en una amplia gama de tecnologías y frameworks, incluyendo <strong>React</strong>, <strong>Next.js</strong>, <strong>Redux</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>, <strong>NestJS</strong>, <strong>Express</strong>, <strong>GraphQL</strong>, <strong>MongoDB</strong>, <strong>PostgreSQL</strong>, y más.<br/><br/>Mi enfoque meticuloso en el detalle y mi pasión por la innovación se combinan para crear soluciones robustas y atractivas.<br/><br/>Siempre estoy ansioso por explorar nuevas tecnologías y aportar mi energía a cada proyecto. ¡Estoy listo para llevar tus ideas al siguiente nivel!\""
   },
   "eduction": {
     "title": "Educación:"
