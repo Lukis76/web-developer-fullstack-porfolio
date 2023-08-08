@@ -116,7 +116,7 @@ export const listTechs = [
     },
     {
         label: "figma",
-        image: "https://www.figma.com/file-icons/Figma-Logo-Icon.png",
+        image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
         link: "https://www.figma.com/",
     }
 ]
