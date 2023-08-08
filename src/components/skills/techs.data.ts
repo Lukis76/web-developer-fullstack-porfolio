@@ -114,4 +114,9 @@ export const listTechs = [
         image: 'https://vitest.dev/logo.svg',
         link: 'https://vitest.dev/',
     },
+    {
+        label: "figma",
+        image: "https://www.figma.com/file-icons/Figma-Logo-Icon.png",
+        link: "https://www.figma.com/",
+    }
 ]
