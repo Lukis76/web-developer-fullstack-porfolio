@@ -18,11 +18,9 @@
     "title": "Sobre mí.",
     "body": "\"Soy un desarrollador web full stack apasionado con experiencia en una amplia gama de tecnologías y frameworks, incluyendo <strong>React</strong>, <strong>Next.js</strong>, <strong>Redux</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>, <strong>NestJS</strong>, <strong>Express</strong>, <strong>GraphQL</strong>, <strong>MongoDB</strong>, <strong>PostgreSQL</strong>, <strong>Css</strong>, <strong>Figma</strong>, y más.<br/><br/>Mi enfoque meticuloso en el detalle y mi pasión por la innovación se combinan para crear soluciones robustas y atractivas.<br/><br/>Siempre estoy ansioso por explorar nuevas tecnologías y aportar mi energía a cada proyecto. ¡Estoy listo para llevar tus ideas al siguiente nivel!\""
   },
-  "eduction": {
-    "title": "Educación:"
-  },
-  "techStack": {
-    "title": "Tecnologías:"
+
+  "techSkills": {
+    "title": "Tecnológicas"
   },
   "dataQuest": [
     {
@@ -34,8 +32,8 @@
       "body": "Las pruebas no son solo una fase en mi proceso de desarrollo; son un pilar fundamental para garantizar calidad y confiabilidad.<br/>Comprendo que una estrategia sólida de pruebas puede marcar la diferencia en un proyecto, por lo que adopto herramientas de prueba como Jest, React Testing Library, Puppeteer, Cypress y Vitest.<br/>Al crear y ejecutar pruebas meticulosamente, me aseguro de que cada característica se valide rigurosamente antes de llegar al usuario.<br/>También aprovecho herramientas potentes como GitHub Actions y Docker para entornos aislados, lo que me permite explorar diferentes escenarios con confianza sin comprometer la estabilidad.<br/>Las pruebas no son una ocurrencia tardía para mí; es un compromiso para ofrecer excelencia y construir productos que superen la prueba del tiempo."
     },
     {
-      "title": "quest three",
-      "body": "description quest one saraaskvnebrvbb vevuieb"
+      "title": "UI/UX",
+      "body": "Mi enfoque va más allá del código, abrazando la creación de experiencias excepcionales. Como desarrollador con un ojo afilado para el diseño, combino habilidades técnicas con una pasión por la interfaz de usuario y la experiencia de usuario (UI/UX). Mi herramienta de elección es Figma, donde transformo ideas en diseños cautivadores y funcionales. Cada línea de código que escribo es influenciada por mi deseo de crear productos intuitivos y atractivos que conecten de manera profunda con los usuarios. Me enorgullece no solo construir aplicaciones, sino también tejer historias visuales que emocionen y deleiten a medida que los usuarios navegan por cada pantalla y funcionalidad. Mi enfoque en el desarrollo UI/UX se traduce en productos que no solo funcionan bien, sino que también cautivan y deleitan, y estoy ansioso por llevar esta pasión a tu equipo y proyectos."
     }
   ],
   "works": {
@@ -43,25 +41,30 @@
     "add": "mas projects",
     "principal": [
       {
-        "title": "food recipe",
+        "title": "receta de comida",
         "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
-        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
-        "web": "sarasa"
+        "web": "sarasa",
+        "chip": ["react"]
+
       },
       {
         "title": "food recipe",
         "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
-        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
-        "web": "sarasa"
+        "web": "sarasa",
+        "chip": [""]
       },
       {
         "title": "food recipe",
         "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
-        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
-        "web": "sarasa"
+        "web": "sarasa",
+        "chip": [""]
+
       }
     ]
   },

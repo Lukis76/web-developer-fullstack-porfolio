@@ -18,11 +18,9 @@
     "title": "About me.",
     "body": "\"I am a passionate full-stack web developer with experience in a wide range of technologies and frameworks, including <strong>React</strong>, <strong>Next.js</strong>, <strong>Redux</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>, <strong>NestJS</strong>, <strong>Express</strong>, <strong>GraphQL</strong>, <strong>MongoDB</strong>, <strong>PostgreSQL</strong>, <strong>Css</strong>, <strong>Figma</strong>, and more.<br/><br/>My meticulous attention to detail and passion for innovation combine to create robust and engaging solutions.<br/><br/>I am always eager to explore new technologies and bring my energy to every project. I am ready to take your ideas to the next level!\""
   },
-  "eduction": {
-    "title": "Education:"
-  },
-  "techStack": {
-    "title": "Technologies:"
+
+  "techSkills": {
+    "title": "Tech skills"
   },
   "dataQuest": [
     {
@@ -34,8 +32,8 @@
       "body": "Testing isn't just a phase in my development process; it's a cornerstone of ensuring quality and reliability.<br/>I understand that a solid testing strategy can make or break a project, which is why I embrace testing tools like Jest, React Testing Library, Puppeteer, Cypress, and Vitest.<br/>By meticulously crafting and executing tests, I ensure that each feature is rigorously validated before it reaches the user.<br/>I also leverage powerful tools like GitHub Actions and Docker for isolated environments, allowing me to confidently explore different scenarios without compromising stability.<br/>Testing isn't an afterthought for me – it's a commitment to delivering excellence and building products that stand the test of time."
     },
     {
-      "title": "quest three",
-      "body": "description quest one saraaskvnebrvbb vevuieb"
+      "title": "UI/UX",
+      "body": "My focus goes beyond code, embracing the craft of crafting exceptional experiences. As a developer with a keen eye for design, I fuse technical skills with a passion for User Interface and User Experience (UI/UX) design. My tool of choice is Figma, where I transform concepts into captivating and functional designs. Every line of code I write is influenced by my drive to create intuitive and visually appealing products that deeply resonate with users. I take pride in not just building applications, but weaving visual narratives that excite and delight as users navigate through each screen and functionality. My dedication to UI/UX development translates into products that not only perform well but also captivate and delight, and I'm eager to bring this passion to your team and projects."
     }
   ],
   "works": {
@@ -45,23 +43,28 @@
       {
         "title": "food recipe",
         "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
-        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "description": "an PI by henry conde we put into practice the skills learned in soy henry's bootcamp",
         "github": "sarasa",
-        "web": "sarasa"
+        "web": "sarasa",
+        "chip": ["react", "redux", "style components", "sequelize", "postgresql", "nodejs", "express"]
       },
       {
         "title": "food recipe",
         "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
         "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
-        "web": "sarasa"
+        "web": "sarasa",
+        "chip": [""]
+
       },
       {
         "title": "food recipe",
         "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
         "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
-        "web": "sarasa"
+        "web": "sarasa",
+        "chip": [""]
+
       }
     ]
   },
