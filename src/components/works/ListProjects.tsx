@@ -41,10 +41,10 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                     {project.title}
                   </h5>
                   <div className='flex flex-row justify-center items-center gap-4 self-start'>
-                    <Link href={project.github}>
+                    <Link href={project.github} className='hover:scale-110'>
                       <GitHub size={2} className='dark:stroke-slate-700 dark:fill-slate-700 stroke-slate-500 fill-slate-500' />
                     </Link>
-                    <Link href={project.web}>
+                    <Link href={project.web} className='hover:scale-110'>
                       <LinkProject size={2} className='dark:stroke-slate-700 dark:fill-slate-700 stroke-slate-500 fill-slate-500' />
                     </Link>
                   </div>

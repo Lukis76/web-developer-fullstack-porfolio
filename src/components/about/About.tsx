@@ -13,9 +13,10 @@ export const About: FC<AboutProps> = async ({ lang }) => {
 
   return (
     <section id='about' className='flex flex-row justify-between items-center'>
-      <div className='flex flex-row justify-between items-center gap-20'>
+      <div className='flex flex-row justify-between items-center gap-20 float-lef'>
         <DrinkCoffee size={35} />
         <div className='w-full'>
+
           <h2 className='text-4xl font-bold text-blue-600 flex flex-row justify-start items-center gap-4'>
             {about.title}
             <i>

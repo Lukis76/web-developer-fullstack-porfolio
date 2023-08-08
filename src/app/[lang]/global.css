@@ -19,3 +19,10 @@
     border-right: .4rem solid transparent;
   }
 }
+
+
+@layer components {
+  .shape-outside-circle {
+    shape-outside: circle(50%);
+  }
+}
