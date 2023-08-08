@@ -12,8 +12,9 @@ export const metadata: Metadata = {
     icons: {
         icon: 'https://rocketdev.vercel.app/en/favicon.ico',
     },
-    title: 'lucas manoguerra - portfolio',
-    description: 'lucas manoguerra - portfolio - web developer fullstack',
+    title: 'lucas manoguerra | web developer full stack',
+    description:
+        'Full stack developer with experience in | Javascript | Nextjs | Reactjs | Redux | Typescript | Nodejs | Express | GraphQL | Mongodb | PostgreSQL | Prisma | sequelize | Cypress | Jest | HTML | CSS | Figma.',
     openGraph: {
         title: 'lucas manoguerra | web developer full stack',
         description:
