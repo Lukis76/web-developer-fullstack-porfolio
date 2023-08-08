@@ -28,7 +28,7 @@ export const About: FC<AboutProps> = async ({ lang }) => {
                             />
                         </i>
                     </h2>
-                    <p className='mt-4 max-w-4xl w-full frame-strong' dangerouslySetInnerHTML={{ __html: about.body }} />
+                    <p className='mt-4 max-w-4xl w-full text-slate-700 dark:text-slate-400 frame-strong' dangerouslySetInnerHTML={{ __html: about.body }} />
                 </div>
             </div>
         </section>
