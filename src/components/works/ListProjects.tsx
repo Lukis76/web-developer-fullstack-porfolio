@@ -31,7 +31,7 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                         className='flex flex-col items-center h-min bg-transparent self-end aria-checked:self-start border border-gray-200 rounded-lg shadow md:flex-row md:items-start aria-checked:md:flex-row-reverse md:max-w-6xl  dark:border-gray-700 dark:bg-transparent '
                     >
                         <Image
-                            src={project.image}
+                            src={"/en/" + project.image}
                             quality={10}
                             aria-checked={check}
                             className='object-contain  rounded-l-lg aria aria-checked:rounded-none aria-checked:rounded-r-lg w-full max-w-[25rem]'

@@ -42,7 +42,7 @@
     "principal": [
       {
         "title": "receta de comida",
-        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "image": "screenshot-food.png",
         "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
         "web": "sarasa",
@@ -50,8 +50,8 @@
 
       },
       {
-        "title": "food recipe",
-        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "title": "NFtrade",
+        "image": "screenshot-nftrade.jpg",
         "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
         "web": "sarasa",
@@ -59,7 +59,7 @@
       },
       {
         "title": "food recipe",
-        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "image": "screenshot-nftrade.jpg",
         "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
         "web": "sarasa",

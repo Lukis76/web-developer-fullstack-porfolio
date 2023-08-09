@@ -42,24 +42,24 @@
     "principal": [
       {
         "title": "food recipe",
-        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "image": "screenshot-food.png",
         "description": "an PI by henry conde we put into practice the skills learned in soy henry's bootcamp",
         "github": "sarasa",
         "web": "sarasa",
         "chip": ["react", "redux", "style components", "sequelize", "postgresql", "nodejs", "express"]
       },
       {
-        "title": "food recipe",
-        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
-        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "title": "NFtrade",
+        "image": "screenshot-nftrade.jpg",
+        "description": "sitio web, ecomerce de NFTs donde puedes tanto comprar como vender los mismos crear colecciones,systema de notificaciones, dashboard,1 dejar comentarios y darles like como muchas otras funcionalidades tipicas de este tipo de plataformas",
         "github": "sarasa",
         "web": "sarasa",
-        "chip": [""]
+        "chip": ["next.js", "prisma", "postgresql", "tailwindcss", "mercado pago"]
 
       },
       {
         "title": "food recipe",
-        "image": "https://lucas-manoguerra.netlify.app/food/captura-desde-2022-11-30-19-55-22_optimized_optimized.png",
+        "image": "screenshot-nftrade.jpg",
         "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
         "web": "sarasa",
