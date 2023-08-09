@@ -28,7 +28,7 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                     <li
                         key={idx}
                         aria-checked={check}
-                        className='flex flex-col items-center h-min bg-transparent self-end aria-checked:self-start border border-gray-200 rounded-lg shadow md:flex-row md:items-start aria-checked:md:flex-row-reverse md:max-w-6xl  dark:border-gray-700 dark:bg-transparent '
+                        className='flex flex-col items-center h-min bg-transparent self-end aria-checked:self-start border border-gray-200 rounded-lg shadow md:flex-row md:items-start aria-checked:md:flex-row-reverse md:max-w-6xl  dark:border-gray-700 dark:bg-transparent tag'
                     >
                         <Image
                             src={"/en/" + project.image}
