@@ -12,7 +12,7 @@ export const About: FC<AboutProps> = async ({ lang }) => {
     const { about } = await getDictionary(lang)
 
     return (
-        <section id='about' className='flex flex-row justify-between items-center'>
+        <section id='about' className='flex flex-row justify-between items-center py-40'>
             <div className='flex flex-row justify-between items-center gap-20 float-lef'>
                 <DrinkCoffee size={35} />
                 <div className='w-full'>
