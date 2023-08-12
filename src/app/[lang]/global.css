@@ -40,7 +40,21 @@
     font-weight: 700;
   }
   .tag:after {
-
+    /* content: "In development"; */
+    color: #242424;
+    font-size: larger;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    width: 150%;
+    /* height: 50px; */
+    background-color: #e74c3c;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index:99;
+    transform: translate(-50%, -50%) rotate(25deg); /* Rotar el pseudo-elemento */
+    
   }
 }
 
