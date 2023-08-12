@@ -44,18 +44,26 @@
         "title": "receta de comida",
         "image": "screenshot-food.png",
         "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
-        "github": "sarasa",
-        "web": "sarasa",
-        "chip": ["react", "redux", "style components", "sequelize", "postgresql", "nodejs", "express"]
+        "github": "https://github.com/Lukis76/PI-Food-main",
+        "web": "https://food-proyect-pi.netlify.app/",
+        "chip": ["react", "redux", "style components", "sequelize", "postgresql", "nodejs", "express"],
+        "app": {
+          "msg": "En desarrollo",
+          "development": false
+        }
 
       },
       {
         "title": "NFtrade",
         "image": "screenshot-nftrade.jpg",
-        "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
-        "github": "sarasa",
-        "web": "sarasa",
-        "chip": [""]
+        "description": "sitio web, ecomerce de NFTs donde puedes tanto comprar como vender los mismos, crear colecciones, notificaciones, dashboard, comentarios y me gustas. como muchas otras funcionalidades tipicas de un ecommerce",
+        "github": "https://github.com/NicoCastagnet/PF-NFTRADE",
+        "web": "https://pf-nftrade.netlify.app/",
+        "chip": ["next.js", "prisma", "postgresql", "tailwindcss", "mercado pago"],
+        "app": {
+          "msg": "En desarrollo",
+          "development": false
+        }
       },
       {
         "title": "food recipe",
@@ -63,7 +71,11 @@
         "description": "un proyecto de PI de henry conde pusimos en practica las habilidades aprendidas en el bootcamp de soy Henry",
         "github": "sarasa",
         "web": "sarasa",
-        "chip": [""]
+        "chip": [""],
+        "app": {
+          "msg": "En desarrollo",
+          "development": false
+        }
 
       }
     ]
