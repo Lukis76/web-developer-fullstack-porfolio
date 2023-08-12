@@ -1,10 +1,10 @@
 'use client'
 
 import { i18n } from '@/i18n.config'
-import { setLangStorage } from '@/lib/storage/setLangStorage'
-import { usePathname, useRouter } from 'next/navigation'
 import { LangPathName } from '@/lib/langPathName'
 import { redirectedPathName } from '@/lib/redirectPathName'
+import { setLangStorage } from '@/lib/storage/setLangStorage'
+import { usePathname, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 export const LocaleSwitcher = () => {
@@ -15,11 +15,9 @@ export const LocaleSwitcher = () => {
         const local = redirectedPathName({ locale: lang, pathName: pathName })
         router.replace(local)
     }
-  useEffect(() => {
-
-    setLangStorage(LangPathName(pathName))
-  }, [])
-
+    useEffect(() => {
+        setLangStorage(LangPathName(pathName))
+    }, [pathName])
 
     return (
         <div className='flex group p-2 w-16 '>
