@@ -3,7 +3,7 @@ const nextConfig = {
   swcMinify: true,
   compress: true,
   images: {
-    domains: ["profilinator.rishav.dev", "images.emojiterra.com", "lucas-manoguerra.netlify.app"]
+    domains: ["profilinator.rishav.dev", "images.emojiterra.com", "lucas-manoguerra.netlify.app", "testing-library.com"]
   }
 }
 
