@@ -12,7 +12,7 @@ export const Contact: FC<ContactProps> = async ({ lang }) => {
   const { contact } = await getDictionary(lang)
 
   return (
-    <section id='contact' className='flex flex-row justify-between items-center py-56 gap-6 w-full '>
+    <section id='contact' className='flex flex-row justify-between items-center py-40 gap-6 w-full '>
       <div className='w-full flex justify-center items-center'>
         <Formulario lang={contact} />
       </div>
