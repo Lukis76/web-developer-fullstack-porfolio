@@ -19,7 +19,7 @@ export const Header: FC<HeaderProps> = async ({ lang }) => {
                 <h2 className='text-6xl font-black text-primary leading-[1.1]'>{header.dev}</h2>
                 <p>{header.footer}</p>
                 <div className='text-lg font-semibold flex flex-row justify-start items-center gap-2 mt-14'>
-                    <LinkResume>{header.button.cv}</LinkResume>
+                    <LinkResume href={`/${lang}/resume.pdf`}>{header.button.cv}</LinkResume>
                     <ButtonToWorks className='text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg w-40 py-2.5 mr-2 mb-2 dark:bg-primary dark:hover:bg-blue-800 focus:outline-none dark:focus:ring-primary transition-colors duration-300'>
                         {header.button.work}
                     </ButtonToWorks>
