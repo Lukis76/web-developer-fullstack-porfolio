@@ -118,5 +118,10 @@ export const listTechs = [
         label: "figma",
         image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
         link: "https://www.figma.com/",
+    },
+    {
+        label: "react-testing-library",
+        image: "https://testing-library.com/img/octopus-64x64.png",
+        link: "https://testing-library.com/docs/react-testing-library/intro/",
     }
 ]
