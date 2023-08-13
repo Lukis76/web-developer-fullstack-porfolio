@@ -19,7 +19,7 @@ export const Footer: FC<FooterProps> = async ({ lang }) => {
   const year = dataTime.toString().split('-')[0]
 
   return (
-    <footer className="rounded-lg shadow-md my-4 border dark:border-gray-300 border-gray-300">
+    <footer className="rounded-lg shadow-md my-4 border dark:border-gray-500 border-gray-300">
       <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <div className='flex flex-col justify-center items-start'>
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {year} <a href="https://github.com/Lukiis76" className="hover:underline">RocketDev.™</a> </span>
