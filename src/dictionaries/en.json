@@ -66,9 +66,9 @@
 
       },
       {
-        "title": "food recipe",
+        "title": "chat app",
         "image": "screenshot-nftrade.jpg",
-        "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
+        "description": "app chat clone slack",
         "github": "https://github.com/NicoCastagnet/PF-NFTRADE",
         "web": "https://pf-nftrade.netlify.app/",
         "chip": ["developing"],
