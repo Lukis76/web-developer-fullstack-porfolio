@@ -40,10 +40,10 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                             src={'/en/' + project.image}
                             quality={10}
                             aria-checked={check}
-                            className=' relative object-contain rounded-l-lg aria aria-checked:rounded-none aria-checked:rounded-r-lg w-96 h-auto '
+                            className='object-contain rounded-l-lg aria-checked:rounded-none aria-checked:rounded-r-lg w-96 h-auto '
                             height={150}
                             width={300}
-                            alt='work'
+                            alt='projet'
                         />
                         <div className='flex flex-col justify-between items-start p-4 leading-normal'>
                             <div className='flex flex-col justify-center items-start w-full'>
