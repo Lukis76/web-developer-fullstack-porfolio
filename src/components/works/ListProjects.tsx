@@ -45,7 +45,7 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                             width={300}
                             alt='projet'
                         />
-                        <div className='flex flex-col justify-between items-start p-4 leading-normal'>
+                        <div className='flex flex-col justify-between items-start p-4 leading-normal w-full'>
                             <div className='flex flex-col justify-center items-start w-full'>
                                 <div className='flex flex-row justify-center items-center w-full'>
                                     <h5 className='mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate w-full'>
