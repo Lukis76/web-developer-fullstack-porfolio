@@ -69,9 +69,9 @@
         "title": "food recipe",
         "image": "screenshot-nftrade.jpg",
         "description": "un proyecto de PI de henry conde pusimos en practica las avilidades aprendidas en el bootcamp de soy Henry",
-        "github": "sarasa",
-        "web": "sarasa",
-        "chip": [""],
+        "github": "https://github.com/NicoCastagnet/PF-NFTRADE",
+        "web": "https://pf-nftrade.netlify.app/",
+        "chip": ["developing"],
         "app": {
           "msg": "In development",
           "development": true
