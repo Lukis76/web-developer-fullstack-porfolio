@@ -50,7 +50,7 @@ const LocaleLayout: FC<LocaleLayoutProps> = ({ children, params }) => {
             >
                 <Providers>
                     <NavbarNavigation lang={params.lang} />
-                    <main className='flex flex-col w-full max-w-7xl px-4 transition-all duration-500'>{children}</main>
+                    <main className='flex flex-col justify-start items-center w-full max-w-7xl px-4 transition-all duration-500 '>{children}</main>
                 </Providers>
             </body>
         </html>
