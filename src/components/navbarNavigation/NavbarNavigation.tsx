@@ -36,11 +36,6 @@ export const NavbarNavigation: FC<NavbarNavigationProps> = async ({ lang }) => {
                         <li>
                             <LiNavToSection section='contact'>{navigation.Contact}</LiNavToSection>
                         </li>
-                        {/* <li>
-              <Link href={`/${lang}/blog`} className='flex px-6 h-12 items-center justify-center rounded-lg transition-colors bg-gray-100 border border-gray-300 hover:bg-gray-200  dark:bg-gray-700 dark:hover:bg-gray-600  text-primary dark:text-white font-extrabold dark:border-gray-600'>
-                {navigation.blog}
-              </Link>
-            </li> */}
                         <li>
                             <LinkBlog href={`/${lang}/blog`} />
                         </li>
