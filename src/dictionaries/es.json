@@ -75,7 +75,7 @@
         "chip": ["En desarrollo"],
         "app": {
           "msg": "En desarrollo",
-          "development": false
+          "development": true
         }
 
       }
