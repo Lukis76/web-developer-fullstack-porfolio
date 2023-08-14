@@ -34,7 +34,7 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                         key={idx}
                         aria-checked={check}
                         aria-invalid={project.app.development}
-                        className='flex flex-col items-center w-full h-min bg-transparent self-end aria-checked:self-start border border-gray-300 rounded-lg shadow-md md:flex-row md:items-start aria-checked:md:flex-row-reverse md:max-w-6xl dark:border-gray-700 dark:bg-transparent relative overflow-hidden tag aria-[invalid="true"]:after:content-["Developing"]'
+                        className='flex flex-col items-center w-full h-min bg-transparent self-end aria-checked:self-start border border-gray-300 rounded-lg shadow-md md:flex-row md:items-start aria-checked:md:flex-row-reverse md:max-w-6xl dark:border-gray-700 dark:bg-transparent relative overflow-hidden tag aria-[invalid="true"]:after:content-["Developing"] after:opacity-90'
                     >
                         <Image
                             src={'/en/' + project.image}
