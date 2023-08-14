@@ -69,10 +69,10 @@
       {
         "title": "chat app",
         "image": "screen-shot-chat-app-optimized-webp.webp",
-        "description": "app chat clone slack",
-        "github": "https://github.com/NicoCastagnet/PF-NFTRADE",
-        "web": "https://pf-nftrade.netlify.app/",
-        "chip": ["devloping"],
+        "description": "app chat - inspirada en telegram",
+        "github": "https://github.com/Lukis76/chat-app",
+        "web": "https://chat-app-telegrap.vercel.app/",
+        "chip": ["En desarrollo"],
         "app": {
           "msg": "En desarrollo",
           "development": false
