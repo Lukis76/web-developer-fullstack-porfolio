@@ -56,7 +56,54 @@
     transform: translate(-50%, -50%) rotate(25deg); /* Rotar el pseudo-elemento */
     
   }
+  .truncate-one {
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1; /* Número de renglones deseados */
+  }
+  .truncate-two {
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /* Número de renglones deseados */
+  }
+  .truncate-three {
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3; /* Número de renglones deseados */
+  }
+  .truncate-four {
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4; /* Número de renglones deseados */
+  }
+  .truncate-five {
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5; /* Número de renglones deseados */
+  }
+  .truncate-six {
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 6; /* Número de renglones deseados */
+  }
+ 
+  
 }
 
-
-
+img {
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 1rem;
+}
