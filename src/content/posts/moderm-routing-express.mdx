@@ -1,0 +1,117 @@
+---
+title: Sequelize and TypeScript Integration > A Practical Tutorial
+description: esta es una gua basica de como integrar typescript en sequelize
+date: Aug 14 2023
+image: https://raw.githubusercontent.com/Lukis76/images/master/baner-sequelize-more-typescript.webp
+---
+
+# Routing in express.js in a modern way
+
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/baner-moderm-routing-express.webp' />
+
+Express.js is the most popular framework to write APIs in node. This is a minimalist and flexible framework to write APIs. Thus we add route endpoints manually then specify the controller in a callback function.
+
+```ts
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.post('/', (req, res) => {
+    res.send('Hello World post!')
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
+```
+
+In this way we have flexibility to add endpoints into any file we want . But the problem is then we need to manually figure out how we will structure the route endpoint files as the application grows.
+
+On the other hand, modern fullstack javascript frameworks like Next.Js, Sveltekit or Remix chooses a different approach for routing. Most of them uses folder based routing, where your folder structure of a specific folder will define your route endpoints. So you do not need to manually define the endpoints. This approach is getting popular day by day.
+
+Now what if we want to use that modern folder based routing in our simple express project. For this purpose there is a npm package named express-folder-router . So with this small library we can use the folder based routing in our express project. Let’s see how it works.
+
+Step 1: Install express folder router in your project.
+
+```bash
+npm install express-folder-router
+```
+
+Step 2: Configure the express-folder-router with our express app.
+
+```ts
+import express from 'express'
+import { configureFolderRouter } from 'express-folder-router'
+
+const app = express()
+
+configureFolderRouter(app)
+
+app.listen(3000, () => {
+    console.log('listening to port 3000')
+})
+```
+
+Note that here you can pass a second parameter as an options object . options object will have two fields . one is routeDir where you specify your root directory for starting routes. By default it will start from “routes” directory. second is extraMethods where you can specify an array of extra methods like “WS” if you use express-ws.
+
+Step 3: Now you are all good to go. Just create any file.js or folder/index.js in your routes directory and export GET , POST , PATCH , PUT and DELETE functions from them. these functions will catch the request methods of their name.
+
+```ts
+// routes/index.js
+// endpoint: localhost:3000
+
+export function GET(req, res) {
+    res.send('this is a get request')
+}
+
+export function DELETE(req, res) {
+    res.send('this is a delete request')
+}
+
+export function POST(req, res) {
+    res.send('this is a post request')
+}
+```
+
+Alternatively, you can export default function that will receive all other requests that are not handled with named function.
+
+```ts
+export function GET(req, res) {
+    res.send('this is a get request')
+}
+
+export default function (req, res) {
+    res.send('this is a catch all request methods except the GET method')
+}
+```
+
+<img src='' />
+
+Use Middleware :
+
+```ts
+export const GET = [authMiddleware, (req,res)=>{
+  res.send("get hello")
+}]
+
+ function authMiddleware(req,res,next){
+    if(\*check authentication*\){
+        next()
+    }else{
+        res.status(401).json({message:"unauthenticated"})
+    }
+}
+```
+
+Create route endpoints :
+
+```bash
+routes/index.js : http://localhost:3000
+routes/user/index.js: http://localhost:3000/user
+routes/user/:id.js: http://localhost:3000/user/<id>   //dynamic
+routes/user/*.js: http://localhost:3000/user/a/b/c        //catch-all
+```

@@ -7,9 +7,7 @@ image: https://raw.githubusercontent.com/Lukis76/images/master/baner-sequelize-m
 
 # Sequelize and TypeScript Integration: A Practical Tutorial
 
-
-<img src="https://raw.githubusercontent.com/Lukis76/images/master/baner-sequelize-more-typescript.webp"  />
-
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/baner-sequelize-more-typescript.webp' />
 
 Sequelize, a widely used ORM (Object Relational Mapping) library for Node.js is embraced by developers who work with different SQL databases such as PostgreSQL, MySQL, SQLite, and SQL Server. It provides a promise-based API to perform CRUD operations, transactions, associations, validations, and more on your database tables using JavaScript or TypeScript objects.
 
@@ -18,6 +16,7 @@ In this blog post. We will explore how to integrate Sequelize with TypeScript. B
 So grab your laptops, open your IDEs, and lets start on this exciting journey!
 
 ### Pre-requisites
+
 Before we start exploring how to use Sequelize ORM with TypeScript, let us make sure you have everything you need installed and set up.
 
 It is necessary to ensure that Node.js is properly installed on your computer. This is because Sequelize is built for Node.js applications, and it’s a requirement for running the ORM. Visit the official website of Node.js and proceed latest version of the software.
@@ -27,9 +26,11 @@ Next, we will be using the npm package manager for our dependencies. Yarn is a f
 Finally, you will require a IDE or text editor. There are many great options available but VS code has many useful extensions that can enhance your coding experience and productivity.
 
 ### What is Sequelize CLI
+
 Sequelize CLI is a command-line interface that helps you create and manage your Sequelize projects. It allows you to generate models, migrations, seeders, and config files for your database.It also lets you run migrations and seeders to update and populate your database. With Sequelize CLI perform work more efficiently in your Node.js project with the flexibility of SQL databases.
 
 ### Understanding Sequelize TypeScript associations
+
 Sequelize is an ORM (Object Relational Mapping) library that provides a convenient way to interact with relational databases. When using Sequelize with TypeScript, defining associations between models can be a powerful tool to simplify database queries and improve performance. Sequelize TypeScript associations allow you to establish relationships between different tables and retrieve data from multiple tables in a single query.
 
 To define associations between Sequelize models in TypeScript, you first need to define the model interfaces with their respective attributes and data types. Once the models are defined, you can create associations using the belongsTo, hasOne, hasMany, and belongsToMany methods, depending on the type of relationship you want to establish between the models.
@@ -39,47 +40,47 @@ For example, suppose you have a User model and a Post model, and you want to est
 ```ts
 // Define User model interface
 interface UserAttributes {
-  id: number;
-  name: string;
-  email: string;
+    id: number
+    name: string
+    email: string
 }
 
 interface UserInstance extends Sequelize.Instance<UserAttributes>, UserAttributes {}
 
 const User = sequelize.define<UserInstance>('User', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  name: Sequelize.STRING,
-  email: Sequelize.STRING,
-});
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    name: Sequelize.STRING,
+    email: Sequelize.STRING,
+})
 
 // Define Post model interface
 interface PostAttributes {
-  id: number;
-  title: string;
-  content: string;
-  userId: number;
+    id: number
+    title: string
+    content: string
+    userId: number
 }
 
 interface PostInstance extends Sequelize.Instance<PostAttributes>, PostAttributes {}
 
 const Post = sequelize.define<PostInstance>('Post', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  title: Sequelize.STRING,
-  content: Sequelize.TEXT,
-  userId: Sequelize.INTEGER,
-});
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    title: Sequelize.STRING,
+    content: Sequelize.TEXT,
+    userId: Sequelize.INTEGER,
+})
 
 // Define association between User and Post models
-User.hasMany(Post, { foreignKey: 'userId' });
-Post.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Post, { foreignKey: 'userId' })
+Post.belongsTo(User, { foreignKey: 'userId' })
 ```
 
 In this example, the hasMany method establishes a one-to-many relationship between the User and Post models, and the belongsTo method defines the inverse relationship between the Post and User models. The foreignKey option specifies the name of the foreign key column that links the two tables.
@@ -87,6 +88,7 @@ In this example, the hasMany method establishes a one-to-many relationship betwe
 Overall, defining associations between Sequelize TypeScript models can help you build more efficient and maintainable database applications by simplifying complex queries and reducing the number of database requests.
 
 ### Managing database changes with Sequelize TypeScript migrations
+
 Sequelize migrations are a powerful tool for managing database schema changes, allowing you to version control and apply changes to your database in a systematic and repeatable way. When working with Sequelize and TypeScript, migrations can be especially useful for maintaining the integrity of your database schema and keeping it in sync with your codebase.
 
 To use migrations in a TypeScript project with Sequelize, you first need to install the sequelize-cli package and configure it to work with your database. After setting up your project, use sequelize-cli to generate migration files. These files will define the modifications you wish to apply to your database schema.
@@ -95,16 +97,16 @@ For example, suppose you want to add a createdAt and updatedAt timestamp to your
 
 ```ts
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('Users', 'createdAt', Sequelize.DATE);
-    await queryInterface.addColumn('Users', 'updatedAt', Sequelize.DATE);
-  },
+    up: async (queryInterface, Sequelize) => {
+        await queryInterface.addColumn('Users', 'createdAt', Sequelize.DATE)
+        await queryInterface.addColumn('Users', 'updatedAt', Sequelize.DATE)
+    },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn('Users', 'createdAt');
-    await queryInterface.removeColumn('Users', 'updatedAt');
-  },
-};
+    down: async (queryInterface, Sequelize) => {
+        await queryInterface.removeColumn('Users', 'createdAt')
+        await queryInterface.removeColumn('Users', 'updatedAt')
+    },
+}
 ```
 
 In this example, the up function defines the changes to be applied to the database, and the down function specifies how to undo those changes in case of a rollback. The queryInterface parameter provides a set of methods for modifying the database schema, such as addColumn, removeColumn, and many others. The Sequelize parameter gives you access to the Sequelize library’s data types and utilities.
@@ -122,9 +124,11 @@ Overall, using Sequelize TypeScript migrations can help you maintain a consisten
 Let’s understand this better with the help of an example.
 
 ### Sequelize Typescript example — What are we building today?
+
 Today, we will be creating a project in Node using TypeScript and building an API using the Express.js framework. Our goal is to implement CRUD operations for our application. CRUD is an acronym for Create, Read, Update, and Delete. By utilizing these four actions valuable information can be created, accessed, modified, or removed from the designated repository. CRUD operations are often used with SQL, a language for querying and manipulating data in relational databases.
 
 ### Setting up our Project
+
 1. Create a project directory and navigate into it:
 
 ```bash
@@ -145,35 +149,32 @@ Here, we are initializing a new Node.js project and installing TypeScript, ts-no
 
 ```json
 {
-  "compilerOptions": {
-    "sourceMap": true,
-    "outDir": "dist",
-    "strict": true,
-    "lib": [
-      "esnext"
-    ],
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "target": "esnext",
-    "moduleResolution": "Node"
-  }
+    "compilerOptions": {
+        "sourceMap": true,
+        "outDir": "dist",
+        "strict": true,
+        "lib": ["esnext"],
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "target": "esnext",
+        "moduleResolution": "Node"
+    }
 }
 ```
 
 Here, we are configuring TypeScript to generate source maps, output compiled files to a dist directory, enable strict type checking, allow the use of ES6 features, enable experimental support for decorators, and configure the target to ES6.
 
-
 4. Add a script to our package.json file to start the development server:
 
 ```json
 {
-  // ...
-  "type": "module",
-  "scripts": {
-    "start": "ts-node-dev main.ts"
-  },
-  // ...
+    // ...
+    "type": "module",
+    "scripts": {
+        "start": "ts-node-dev main.ts"
+    }
+    // ...
 }
 ```
 
@@ -185,9 +186,3 @@ Here, we are adding a start script that uses ts-node-dev to run the main.ts file
 npm install express mariadb reflect-metadata sequelize sequelize-typescript --save
 npm install @types/express @types/validator --save-dev
 ```
-
-
-
-
-
-
