@@ -14,7 +14,7 @@ const Techs: FC<TechsProps> = ({ image, label, link }) => {
         <>
             <ToolTip text={label}>
                 <Link href={link} target='_blank' className='flex'>
-                    <Image className='flex' quality={1} src={image} width={40} height={40} alt={`logo ${label}`} />
+                    <Image className='flex h-10 w-10 m-0 border-none rounded-none' quality={1} src={image} width={40} height={40} alt={`logo ${label}`} />
                 </Link>
             </ToolTip>
         </>

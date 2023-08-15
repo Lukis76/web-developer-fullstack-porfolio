@@ -21,6 +21,7 @@ export const About: FC<AboutProps> = async ({ lang }) => {
                         <i>
                             <Image
                                 quality={0}
+                                className='m-0 border-none rounded-none w-14'
                                 src={'https://images.emojiterra.com/google/noto-emoji/unicode-15/animated/1f609.gif'}
                                 width={42}
                                 height={42}
