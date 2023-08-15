@@ -16,15 +16,7 @@ const BlogPage: FC<BlogPageProps> = () => {
         <div className='flex flex-col justify-start items-center py-10 w-full'>
             <ul className='flex flex-row gap-4 justify-center items-center flex-wrap w-full'>
                 {allPosts.map((post) => {
-                    return (
-                        <>
-                            <CardPost key={1} {...post} />
-                            <CardPost key={2} {...post} />
-                            <CardPost key={3} {...post} />
-                            <CardPost key={4} {...post} />
-                            <CardPost key={5} {...post} />
-                        </>
-                    )
+                    return <CardPost key={1} {...post} />
                 })}
             </ul>
         </div>
