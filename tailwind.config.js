@@ -7,6 +7,9 @@ module.exports = {
     darkMode: 'class',
     theme: {
         extend: {
+            fontSize: {
+                small: '0.5rem',
+            },
             aria: {
                 invalid: 'aria-invalid="true"',
                 valid: 'aria-invalid="false"',
