@@ -1,6 +1,6 @@
 ---
 title: Optimally dockerizing NextJS application and Lessons Learned
-description: Express.js is the most popular framework to write APIs in node. This is a minimalist and flexible framework to write APIs. Thus we add route endpoints manually then specify the controller in a callback function.
+description: I was working on containerizing a Next.js application. At first it seems just a straight forward job. I am not well versed in Javascript or NextJS but I knew what needed to be done but I knew what the requirement was. I only had one requirement i.e Image size should be small.
 date: Aug 17 2023
 image: https://raw.githubusercontent.com/Lukis76/images/master/baner-next.js-more-docker.webp
 ---
@@ -59,7 +59,7 @@ Everything looks good until i checked the docker image size.
 Everything looks good until i checked the docker image size.
 ```
 
-<img src='https://raw.githubusercontent.com/Lukis76/images/master/sorpendido.gif' />
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/sorpendido.gif' className='w-64 translate-x-full' />
 
 It came to my attention that my docker image size ended up being **1.01G**. This was somewhat expected when working with **nodejs**. I was not surprised as i had seen memes relating to **node_modules** before such as this
 
@@ -71,7 +71,7 @@ The problem was my server memory itself is **2G** which is shared across multipl
 
 This broke my app and my happiness :’(.
 
-<img src='https://raw.githubusercontent.com/Lukis76/images/master/hongo-lorando.gif' />
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/hongo-lorando.gif' className='w-64 translate-x-full'/>
 
 ### Solution 1: Enable **standalone** output
 
@@ -144,7 +144,7 @@ my-app                     v1        db04518b48bb   48 seconds ago   170MB
 
 This was a huge improvement.
 
-<img src='https://raw.githubusercontent.com/Lukis76/images/master/festejo.gif' />
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/festejo.gif' className='w-64 translate-x-full' />
 
 We also removed the dev dependency during build using **npm prune --production** which again reduced the image size to **150M**
 
