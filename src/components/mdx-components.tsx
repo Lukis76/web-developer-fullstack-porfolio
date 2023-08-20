@@ -49,6 +49,7 @@ const components = {
             {...props}
         />
     ),
+    strong: ({ className, ...props }) => <strong className={cn(' px-1 rounded-md font-normal text-[#b54e4e] bg-[rgba(135,131,120,0.15)]', className)} {...props} />,
     code: ({ className, ...props }) => <code className={cn('relative rounded border-none  font-normal text-md', className)} {...props} />,
     span: ({ className, ...props }) => <span className={cn('font-medium border-none', className)} {...props} />,
     Image,
