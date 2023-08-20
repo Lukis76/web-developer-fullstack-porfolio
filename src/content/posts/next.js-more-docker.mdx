@@ -1,0 +1,350 @@
+---
+title: Optimally dockerizing NextJS application and Lessons Learned
+description: Express.js is the most popular framework to write APIs in node. This is a minimalist and flexible framework to write APIs. Thus we add route endpoints manually then specify the controller in a callback function.
+date: Aug 17 2023
+image: https://raw.githubusercontent.com/Lukis76/images/master/baner-next.js-more-docker.webp
+---
+
+# Optimally dockerizing NextJS application and Lessons Learned
+
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/baner-next.js-more-docker.webp' />
+
+### Introduction
+I was working on containerizing a Next.js application. At first it seems just a straight forward job. I am not well versed in Javascript or NextJS but I knew what needed to be done but I knew what the requirement was. I only had one requirement i.e **Image size should be small.**
+
+I created a file called **Dockerfile** in the project main directory and put the following configuration. Using a multi-stage build process to build in the docker image helped to selectively copy artifacts from one stage into another leaving behind all the unnecessary things which are not required in the final image.
+
+After all the needful was done, the Dockerfile looked like this
+
+```Dockerfile
+# Stage 1
+FROM node:16-alpine AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN  npm install --production
+
+# Stage 2
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN NODE_ENV=production npm run build
+
+# Stage 3
+FROM node:16-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+USER 1001
+EXPOSE 3000
+ENV PORT 3000
+CMD ["npm", "start"]
+```
+
+I went ahead to build the docker image using following command
+
+```bash
+$ docker build -t my-app:v1 .
+```
+
+### Problem 1: Docker image size
+
+Everything looks good until i checked the docker image size.
+
+```bash
+Everything looks good until i checked the docker image size.
+```
+
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/sorprendido.gif' />
+
+It came to my attention that my docker image size ended up being **1.01G**. This was somewhat expected when working with **nodejs**. I was not surprised as i had seen memes relating to **node_modules** before such as this
+
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/size-node-modules.webp' />
+
+Thinking everything will be okay, I tried deploying the application to my dev cluster which had memory of 2G. Immediately after deploying, it got OOMKilled.
+
+The problem was my server memory itself is **2G** which is shared across multiple apps. Now when I run the app, it could not load such a big image into memory. Also, i should mention that docker containers are bigger than docker image hence when container was deployed it became probably around **1.6G** in size.
+
+This broke my app and my happiness :’(.
+
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/hongo-lorando.gif' />
+
+### Solution 1: Enable **standalone** output
+
+After a quick bit of research, I found that there was a way to reduce the size of the NextJS application by running a **standalone** build directory which contains all the necessary files for production deployment including selected files from **node_modules**. So, i leveraged this automatic copying feature by enabling it in **next.config.js** file
+
+```js
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+    ],
+  },
++ output: 'standalone',
+};
+
+module.exports = nextConfig;
+```
+
+Once that is done and when we build the app, it creates two directories **standalone** and **static** directory inside **.next** folder. That is what we need to run the application in production.
+
+So, I updated the **Dockerfile** to only copy required files into the runner stage rather than all the **node_modules** and other files.
+
+After updating the dockerfile, the change looked like this
+
+```git
+# Stage 1
+FROM node:16-alpine AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN  npm install --production
+
+# Stage 2
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN NODE_ENV=production npm run build
+
+# Stage 3
+FROM node:16-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+-COPY --from=builder /app/node_modules ./node_modules
+-COPY --from=builder /app/package.json ./package.json
++COPY --from=builder /app/next.config.js ./
++COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./        
++COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+USER 1001
+EXPOSE 3000
+ENV PORT 3000
+-CMD ["npm", "start"]
++CMD ["node", "server.js"]
+```
+
+Once I built the application again and checked the docker image again. To my surprise the image was just **170M**. Our docker image just got way smaller from **1.42G** to just **170M**.
+
+```bash
+$ docker image ls
+REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
+my-app                     v1        db04518b48bb   48 seconds ago   170MB
+```
+
+This was a huge improvement.
+
+<img src='https://raw.githubusercontent.com/Lukis76/images/master/festejo.gif' />
+
+We also removed the dev dependency during build using **npm prune --production** which again reduced the image size to **150M**
+
+After change dockerfile looked like this
+
+```git
+# Stage 1
+FROM node:16-alpine AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN  npm install --production
+
+# Stage 2
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+-RUN NODE_ENV=production npm run build
++RUN NODE_ENV=production npm run build && npm prune --production
+
+# Stage 3
+FROM node:16-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+-COPY --from=builder /app/node_modules ./node_modules
+-COPY --from=builder /app/package.json ./package.json
++COPY --from=builder /app/next.config.js ./
++COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./        
++COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+USER 1001
+EXPOSE 3000
+ENV PORT 3000
+-CMD ["npm", "start"]
++CMD ["node", "server.js"]
+```
+
+I was happy with this. I went ahead and deployed the application in the cluster, which also worked well until another problem was born.
+
+### Problem 2: ENV variables passed at runtime were not being made available to client browser
+
+I had passed in environment variables from during runtime, but for some reason, those variables even if prefixed with **NEXT_PUBLIC_\*** was not made available to the browser.
+
+I tried passing in those env vars using the ‘.env’ file which still did not work.
+
+I tried asking door to door on **reddit**, **github**, **SO** etc. No luck. Whatever I tried, variables were still being shown as **undefined**.
+
+I was given various advice to go for alternative routes i.e deploying to Vercel or Google cloud run which were legit advises if the work i was doing was timebound. With free time at hand, I decided to stick with it and try to find a way.
+
+After some days going into the rabbit hole, I found that when using NextJS with standalone output, we need to **declare ENV vars as part of the build step** which when done, works and env vars are accessible from the browser.
+
+But that again introduced another risk i.e Docker Image with secrets baked in.
+
+I wanted to see if there was a way to circumvent it without baking secrets in docker image.
+
+After some more research, I found that there was no way to pass env var at runtime when building an app as a **standalone** output because NextJS only looks for the env defined at build time if it is exposed as **standalone** output.
+
+### Solution 2: Pass **ENV** vars to build stage as docker **build-args**
+
+To resolve this, I ended up passing env var as an build argument to build stage during docker build.
+
+Before that i had to add runtime configuration in **next.config.js** which would make all vars prefixed with **NEXT_PUBLIC_\*** were made available to client browser using runtime configuration
+
+Turns out **NEXT_PUBLIC_\*** prefix variables will only be shown to the browser when you are using Next version 9. For newer versions i.e 12 you would need to define runtime configuration in next.config.js and define it as part of either **env** or **publicRuntimeConfig**.
+
+I went ahead and added following configuration in **next.config.js** file
+
+```js
+publicRuntimeConfig: {
+    // remove private variables from processEnv
+    processEnv: Object.fromEntries(
+      Object.entries(process.env).filter(([key]) => key.includes('NEXT_PUBLIC_')),
+    ),
+  },
+```
+
+After the change **next.config.js** looked like this
+
+```git
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+    ],
+  },
++ publicRuntimeConfig: {
++    // remove private variables from processEnv
++    processEnv: Object.fromEntries(
++      Object.entries(process.env).filter(([key]) => key.includes('NEXT_PUBLIC_')),
++    ),
++  },
++  output: 'standalone',
+};
+module.exports = nextConfig;
+```
+
+I then passed env variable at build time using **ARG** and **ENV** parameter as shown below
+
+```git
+# Stage 1
+FROM node:16-alpine AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN  npm install --production
+
+# Stage 2
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
++ARG HOST_API
++ENV NEXT_PUBLIC_HOST_API=${HOST_API}
+RUN NODE_ENV=production npm run build
+
+# Stage 3
+FROM node:16-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./   
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+USER 1001
+EXPOSE 3000
+ENV PORT 3000
+CMD ["node", "server.js"]
+```
+
+Now we need to pass build args when building the application.
+
+```bash
+$ docker build -t my-app:v1 . --build-arg API_URL=https://app1.com
+```
+
+Once this was done and the application was deployed, we were able to access env vars from the browser without any issue.
+
+### Optimized Dockerfile for NextJS application
+
+After all these shenanigans, my optimal dockerfile became like this
+
+```dockerfile
+# Stage 1
+FROM node:16-alpine AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+COPY . .
+RUN npm install --omit=dev --production=true
+
+# Stage 2
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ARG HOST_API
+ENV NEXT_PUBLIC_HOST_API=${HOST_API}
+RUN NODE_ENV=production npm run build && npm prune --production
+
+# Stage 3
+FROM node:16-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+USER nextjs
+EXPOSE 3000
+ENV PORT 3000
+ENV NEXT_TELEMETRY_DISABLED 1
+CMD ["node", "server.js"]
+```
+### Few things i learned when researching this issue
+
+1. **npm ci** is way faster than **npm install** and is more suitable when you want to do a clean build i.e via pipeline or docker build.
+
+2. When using **pulicRuntimeConfig** , all values are passed in to every page on the client browser rather than only the page which needs it. This could create some issues down the line, and might need to be revisited later with something like **serverRuntimeConfig** , or just **env**.
+
+### Conclusion
+
+Although this method would pack secret in the docker image, we thought we can compensate this by tightening the ecosystem around it i.e image being pulled from private registry, not running container as root, tuning CORS policies for backend API , applying tight RBAC policy to service account privilege in k8s, tight filesystem permission etc.
+
+After all of these if attacker gains access to the filesystem then we can assume they can get the env vars as well, and we are fucked ¯\(ツ)/¯.
+
+After careful consideration, we decided this was good enough for us for now.
+
+While I started with one thing in mind, the series of events that unfolded, led me down a few rabbit holes and I was able to learn alot from them. I hope you were able to learn some new things as well.
+
+Please do share this article if you find the reading useful. Thanks :).
+
+
+
+
+
+
