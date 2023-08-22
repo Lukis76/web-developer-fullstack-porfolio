@@ -1,0 +1,81 @@
+---
+title: NextJS Upgrade, next/image, and dangerouslyAllowSVG
+description: Our team recently faced the task of upgrading NodeJS from version 16 to 18 due to the upcoming end of support for NodeJS 14 and 16 by Vercel. As Vercel is phasing out support for NodeJS 14 and 16 on Aug 15, 2023, and Feb 4, 2024 respectively, we had to ensure our application could run on the latest supported version.
+date: Aug 21 2023
+image: 
+---
+
+# NextJS Upgrade, next/image, and dangerouslyAllowSVG
+
+<img src='' alt='' />
+
+Our team recently faced the task of upgrading NodeJS from version 16 to 18 due to the upcoming end of support for NodeJS 14 and 16 by Vercel. As Vercel is phasing out support for NodeJS 14 and 16 on Aug 15, 2023, and Feb 4, 2024 respectively, we had to ensure our application could run on the latest supported version.
+
+
+During the upgrade, we also needed to update NextJS from version 11 to version 12, along with several other packages, including Storybook and webpack, which was also dependent on Storybook. While performing the upgrade, we encountered a peculiar issue related to NextJS image support for SVG images.
+
+The problem arose with two different images that were sourced from the same place, a headless CMS. Surprisingly, one of the images displayed without any issues, while the other had trouble loading.
+
+On further investigation, we discovered that NextJS optimizes images hosted on the same domain as the app by default. Since our images were hosted externally on the CMS, we had to specify which domains were allowed to be optimized. But we already had the required domains added to the **configuration(next.config.js)**;
+
+```ts
+  images: {
+    domains: [
+      “abc-demo.cdn.prismic.io",
+      "images.prismic.io",
+    ],
+  },
+```
+
+and the issue persisted.
+
+To solve the problem, we set the configuration option dangerouslyAllowSVG to true in the Next.js config, which resolved the issue 🎉.
+
+```ts
+ images: {
+    dangerouslyAllowSVG: true,
+    domains: [
+      "abc-demo.cdn.prismic.io",
+      "images.prismic.io",
+    ],
+  },
+```
+
+The **dangerouslyAllowSVG: true** configuration option allows us to explicitly override these safety checks and enable the display of SVG images that contain the **auto=compress,format** parameter. However, it is called _“dangerously”_ because it bypasses some of the security checks that NextJS typically applies to SVG images.
+
+In addition, <u>according to this documentation</u>, NextJS recommends to use **contentDispositionType** and **contentSecurityPolicy** properties along with **dangerouslyAllowSVG** to make the implementation more secure.
+
+🤔 Even though we found a solution, we were still curious about why these two seemingly similar images behaved differently previously.
+
+So, we started the examination again removing the dangerouslyAllowSVG from configuration. On closer examination, we noticed differences in the source URLs of both images which looked something like this:
+
+> Image Source 1: https://images.prismic.io/abc-demo/7723d14c-1233-4550-92da-59da4a86218f_Nav+Icon_Banking.svg?auto=compress,format
+
+> Image Source 2: https://abc-demo.cdn.prismic.io/abc-demo/9ddebda9-26bc-49c1-b2c0-55d7bdc52c13_New_Banner.svg
+
+Although both domains were added to the NextJS image configuration, the issue persisted. Besides, we were thinking that since both the images were in SVG format, so they should have behaved the same way.
+
+One crucial difference between the two URLs, that you must also have already noticed, was the presence of the **auto=compress,format** parameter in _Image Source 1_. We removed the parameter and hard coded the image url as image source in NextJS Image component. The image gets loaded.
+
+It worked!!! 🎉
+
+Yes, that was the culprit and on investigating further we discovered that in NextJS v12(and above, I guess), there are some optimizations related to how images are handled.
+
+Specifically, when an SVG image _URL does not contain_ the **auto=compress,format** parameter, NextJS automatically loads the image without optimizing or processing the SVG image.
+
+
+> By default NextJS does not optimize SVG images for a few reasons. First, SVG is a vector format meaning it can be resized losslessly. Second, SVG has many of the same features as HTML/CSS, which can lead to vulnerabilities without proper Content Security Policy (CSP) headers.
+
+On the other hand, when the SVG image _URL does contain_ the **auto=compress,format** parameter, it usually indicates that the image should be processed by the server or content delivery network (CDN) to optimize its size and format automatically before it is delivered to the user’s browser. In this case, what we reckon is that NextJS image API also tried to apply its optimization process(including its security measures) which somehow resulted in the image type change to **plain/text** and which further led to the failure.
+
+The _key aspect to note_ here is that the **auto=compress,format** parameter was originally introduced by Prismic in conjunction with imigix to optimize images. However, when this parameter was passed to Next.js’s Image API, it might have been interpreted differently, potentially leading to a change in the image’s MIME type. This variation in how the parameter was handled could have caused the image loading issues that were encountered during the integration.
+
+Indeed, these findings aligned with our observations. 🤔 But, we have yet to gain a clear understanding of how exactly the NextJS API processes the **auto=compress,format** parameter. Further investigation is required to ascertain the specific behavior and implications of this parameter when used in conjunction with the NextJS Image API. I’ve also opened a [discussion in GitHub](https://github.com/vercel/next.js/discussions/53041) regarding this issue. Hope we get some answers from there as well.
+
+Happy coding! 🎉
+
+
+
+
+
+
