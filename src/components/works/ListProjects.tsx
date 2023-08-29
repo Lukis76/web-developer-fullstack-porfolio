@@ -38,7 +38,7 @@ export const ListProjects: FC<ListProjetsProps> = ({ projects }) => {
                     >
                         <Image
                             src={'/en/' + project.image}
-                            quality={10}
+                            quality={80}
                             aria-checked={check}
                             className='m-0 border-none rounded-none object-contain rounded-l-lg aria-checked:rounded-none aria-checked:rounded-r-lg w-96 h-auto '
                             height={150}
