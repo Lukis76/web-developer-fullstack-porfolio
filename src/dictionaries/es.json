@@ -71,7 +71,7 @@
         "image": "screen-shot-chat-app-optimized-webp.png",
         "description": "app chat - inspirada en telegram",
         "github": "https://github.com/Lukis76/chat-app",
-        "web": "https://chat-app-telegrap.vercel.app/",
+        "web": "https://telegrap.vercel.app/",
         "chip": ["En desarrollo"],
         "app": {
           "msg": "En desarrollo",
